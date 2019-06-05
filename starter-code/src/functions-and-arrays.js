@@ -1,4 +1,14 @@
 // Find the maximum
+function maxOfTwoNumbers(a, b) {
+  return Math.max(a, b);
+
+  // if (a > b) return a; 
+  // return b;
+  // shorter:
+  // return a > b ? a : b
+  };
+
+  
 
 // Finding Longest Word
 var words = [
@@ -11,54 +21,139 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(words) {
+  let longestWord;
+  
+  words.forEach(function(word) {
+    if (!longestWord || word.length > longestWord.length) {
+      longestWord = word;
+    }
+  });
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+  return longestWord; 
+}
+
+// My solution below. Above was taken up in class
+//   for (let i = 0; i < words.length; i++) {
+//     if (words[i].length > longestWord.length){
+//       longestWord = words[i]
+//     }
+//   }
+
+//   if (longestWord === "") {
+//     return undefined;
+//   } else {
+//     console.log(longestWord);
+//     return longestWord;
+//   }
+// }
+
+// Calculating a Sum
+function sumArray(numbers) {
+  let total = 0;
+  numbers.forEach(function(num){
+    total += num;
+  });
+  return total;
+}
+
+// My solution below. Above was taken up in class
+  // function sumArray(numbers) {
+  //   let sum = 0;
+  //   for (var i = 0; i < numbers.length; i++) {
+  //   sum += numbers[i];
+  //   }
+  //   console.log(sum)
+  //   return sum;
+  // }
 
 // Calculate the Average
+function averageNumbers(numbers) {
+  if (!numbers.length) return;
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+  let sum = sumArray(numbers);
+  return sum / numbers.length;
+}
+
+// My solution below. Above was taken up in class
+// function averageNumbers(numbersAvg) {
+//   let sum = 0;
+//   if (numbersAvg.length > 0){
+//     for (var i = 0; i < numbersAvg.length; i++) {
+//       sum += numbersAvg[i];
+//     }
+//       return sum / numbersAvg.length;
+//         } else if (numbersAvg.length === 0) {
+//     return undefined;
+//   }
+// }
 
 // Array of Strings
-var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
+function averageWordLength(wordsArr){
+  let newArr = [];
+  wordsArr.forEach(function(word){
+      newArr.push(word.length);
+  });
+
+  let avg = averageNumbers(numbers);
+  return avg; 
+}
+
+
+// // My solution below. Above was taken up in class
+// function averageWordLength(wordsArr) {
+//   let newArr = [];
+//   if (wordsArr.length > 0) {
+//   for (let i = 0; i < wordsArr.length; i++){
+//         newArr.push(wordsArr[i].length);
+//       }
+//       console.log(newArr);
+//       console.log(averageNumbers(newArr));
+//       return averageNumbers(newArr);
+//     } else if (wordsArr.length === 0) {
+//       return undefined;
+//     }
+// }
 
 // Unique Arrays
-var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+function uniquifyArray(words) {
+  if (!words.length) return;
+  let uniques = [];
+
+  words.forEach(function(word){
+    if (uniques.indexOf(word)  === -1) uniques.push(word)
+  })
+
+  return uniques;
+}
+
+// My solution below. Above was taken up in class
+// function uniquifyArray(wordsUnique){
+//   if (wordsUnique.length === 0) return undefined;
+//   let newArr = [];
+//   for (let i = 0; i <= wordsUnique.length - 1; i++){
+//     if (!newArr.includes(wordsUnique[i])) newArr.push(wordsUnique[i]);
+//   }
+//   return newArr;
+// }
 
 // Finding Elements
-var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
-];
+function doesWordExist(wordsFind, item) {
+    return wordsFind.includes(item);
+    // OR v
+    // if (wordsFind.includes(item)) return true;
+    // return false;
+}
+
+// function doesWordExist(wordsFind, item){
+//     if (wordsFind.length === 0) return false; 
+//       for (let i = 0; i < wordsFind.length; i++) {
+//         if (item === wordsFind[i]) {
+//           return true; 
+//     } 
+//   }
+// return false;
+// }
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +169,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, item) {
+// My solution below. Above was taken up in class
+  if (!wordsCount.length) return false; 
+  let counter = 0
+  for (let i = 0; i < wordsCount.length; i++) {
+   if (wordsCount[i] === item) {
+     counter ++
+   }
+  }
+  return counter
+}
+
 // Bonus Quest
 
 var matrix = [
